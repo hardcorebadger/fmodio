@@ -125,7 +125,7 @@ int CAudioEngine::PlaySound(const string& strSoundName, const Vector3& vPos, flo
             FMOD_VECTOR position = VectorToFmod(vPos);
             CAudioEngine::ErrorCheck(pChannel->set3DAttributes(&position, nullptr));
         }
-        CAudioEngine::ErrorCheck(pChannel->setVolume(dbToVolume(fVolumedB)));
+        CAudioEngine::ErrorCheck(pChannel->setVolume(dBToVolume(fVolumedB)));
         CAudioEngine::ErrorCheck(pChannel->setPaused(false));
         sgpImplementation->mChannels[nChannelId] = pChannel;
     }
@@ -180,7 +180,7 @@ void CAudioEngine::SetChannelVolume(int nChannelId, float fVolumedB) {
     if (tFoundIt == sgpImplementation->mChannels.end())
         return;
     
-    CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(dbToVolume(fVolumedB)));
+    CAudioEngine::ErrorCheck(tFoundIt->second->setVolume(dBToVolume(fVolumedB)));
 }
 
 void CAudioEngine::GetEventParameter(const string &strEventName, const string &strParameterName, float* parameter) {
