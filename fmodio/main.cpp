@@ -7,11 +7,15 @@
 //
 
 #include <iostream>
-#include "fmod_studio.hpp"
-#include "fmod.hpp"
+#include "AudioEngine.h"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    // /Users/trefethen/Documents/unity/colt45/Assets/LilSumn/Sound/interface_Main_Wood_Wood_05.wav
+    CAudioEngine engine;
+    engine.Init();
+    std::cout << "Fmodio Initialized!\n";
+    engine.LoadSound("/Users/trefethen/Documents/unity/colt45/Assets/LilSumn/Sound/interface_Main_Wood_Wood_05.wav");
+    engine.PlaySound("/Users/trefethen/Documents/unity/colt45/Assets/LilSumn/Sound/interface_Main_Wood_Wood_05.wav");
     return 0;
 }
